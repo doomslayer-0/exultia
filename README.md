@@ -1,4 +1,4 @@
-# exultia
+# exultia - dotfiles
 
 Dotfiles for a nice configuration, using Sway, Plasma and Qtile; the Catppuccin Mocha colourscheme; and some Doom theming.
 
