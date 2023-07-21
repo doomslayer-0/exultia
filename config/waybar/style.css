@@ -6,9 +6,10 @@
 
 window#waybar {
   /* background-color: rgba(18, 21, 29, 0.98); */
-  background-color: #181825;
+  background-color: #110E26;
   /* background-color: rgba(0, 0, 0, 0); */
-  border-bottom: 3px solid #1e222a;
+  /* border-bottom: 3px solid #1e1e2e; */
+  border-bottom: 3px solid #110E26;
   color: #fdc8ff;
   transition-property: background-color;
   transition-duration: .5s;
@@ -29,7 +30,7 @@ window#waybar.hidden {
   font-family: Ubuntu Nerd Font;
   font-size: 16px;
   color: #f38ba8;
-  background-color: #1e222a;
+  background-color: #1e1e2e;
   padding: 0 10px;
   margin: 2px 4px 5px 4px;
   border: 3px solid rgba(0, 0, 0, 0);
@@ -41,7 +42,7 @@ window#waybar.hidden {
   font-family: Ubuntu Nerd Font;
   font-size: 16px;
   color: #b4befe;
-  background-color: #1e222a;
+  background-color: #1e1e2e;
   padding: 0 10px;
   margin: 2px 4px 5px 4px;
   border: 3px solid rgba(0, 0, 0, 0);
@@ -64,7 +65,7 @@ window#waybar.hidden {
 #battery,
 #network,
 #tray {
-  background-color: #1e222a;
+  background-color: #1e1e2e;
   padding: 0 10px;
   margin: 2px 4px 5px 4px;
   border: 3px solid rgba(0, 0, 0, 0);
@@ -104,12 +105,12 @@ window#waybar.hidden {
 
 #temperature.critical {
   background-color: #e06c75;
-  color: #1e222a;
+  color: #1e1e2e;
 }
 
 #custom-media {
   background-color: #c678dd;
-  color: #1e222a;
+  color: #1e1e2e;
 }
 
 #custom-fans {
@@ -126,7 +127,7 @@ window#waybar.hidden {
 
 #idle_inhibitor.activated {
   background-color: #abb2bf;
-  color: #1e222a;
+  color: #1e1e2e;
 }
 
 #language {
@@ -139,7 +140,7 @@ window#waybar.hidden {
 
 #pulseaudio.muted {
   background-color: #e06c75;
-  color: #1e222a;
+  color: #1e1e2e;
 }
 
 #backlight {
@@ -152,19 +153,19 @@ window#waybar.hidden {
 
 #battery.charging, #battery.plugged {
   background-color: #98c379;
-  color: #1e222a;
+  color: #1e1e2e;
 }
 
 @keyframes blink {
     to {
-        background-color: #1e222a;
+        background-color: #1e1e2e;
         color: #e06c75;
     }
 }
 
 #battery.critical:not(.charging) {
     background-color: #e06c75;
-    color: #1e222a;
+    color: #1e1e2e;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -178,5 +179,5 @@ window#waybar.hidden {
 
 #network.disconnected {
     background-color: #e06c75;
-    color: #1e222a;
+    color: #1e1e2e;
 }
