@@ -7,7 +7,7 @@ upd=$(checkupdates | wc -l); White='\033[0;97m'; NC='\033[0m'; printf " ${Whi
 ### --- Debian --- ###
 
 kern="$(uname -r)";kernel=${kern};White='\033[0;97m';NC='\033[0m';printf " ${White}%s ${NC}" $kernel #d20f39
-upd=$(apt list --upgradable | wc -l); White='\033[0;97m'; NC='\033[0m'; printf " ${White}$upd${NC} " #f20004
+upd=$(apt list --upgradeable 2>/dev/null | cut -d/ -f1 | grep -v Listing | wc -l); White='\033[0;97m'; NC='\033[0m'; printf " ${White}$upd${NC} "
 
 ### --- Fedora --- ###
 ...todo
