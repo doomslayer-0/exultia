@@ -1,2 +1,13 @@
+
+### --- Arch Linux --- ###
+
 kern="$(uname -r)";kernel=${kern:0:9};White='\033[0;97m';NC='\033[0m';printf " ${White}%s ${NC}" $kernel
 upd=$(checkupdates | wc -l); White='\033[0;97m'; NC='\033[0m'; printf " ${White}$upd${NC} "
+
+### --- Debian --- ###
+
+kern="$(uname -r)";kernel=${kern};White='\033[0;97m';NC='\033[0m';printf " ${White}%s ${NC}" $kernel #d20f39
+upd=$(apt list --upgradable | wc -l); White='\033[0;97m'; NC='\033[0m'; printf " ${White}$upd${NC} " #f20004
+
+### --- Fedora --- ###
+...todo
