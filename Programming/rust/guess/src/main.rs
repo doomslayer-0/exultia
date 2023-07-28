@@ -2,6 +2,24 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 
+fn guessGame() {
+
+    loop {
+        
+        println!("How many guesses do you want?");
+
+        let mut guessAmount: u32;
+
+        io::stdin()
+                .read_line(&mut guessAmount);
+                .expect("Could not read input");
+        
+    }
+
+    for...
+
+}
+
 fn main() {
     println!("Guess the number!");
 

@@ -1,32 +1,37 @@
 import random
 import sys
 
+
 def guessGame():
-    guessAmount = 5
-    secretNum = random.randrange(1,25)
+    secretNum = random.randrange(1, 25)
+    print("How many guesses do you want to have at your disposal?")
+    guessAmount = int(input())
     while guessAmount > 0:
         print("Input your guess:")
         guessNum = int(input())
-        print("Your guess is {}".format(guessNum))
+        print("Your guess is {}\n".format(guessNum))
         if guessNum == secretNum:
             print("You win!")
             break
-        elif guessNum != secretNum:
+        if guessNum != secretNum:
             if guessNum < secretNum:
-                guessAmount = guessAmount - 1
-                print("Too small!")
+                guessAmount -= 1
+                print("Too small!\n")
+                print("You have {} guesses left!\n".format(guessAmount))
                 continue
-            elif guessNum > secretNum:
-                print("Too big!")
-                guessAmount = guessAmount - 1
+            if guessNum > secretNum:
+                guessAmount -= 1
+                print("Too big!\n")
+                print("You have {} guesses left!\n".format(guessAmount))
                 continue
     else:
         print("You lose!")
     print("Do you want to play again?")
     answer = input()
-    if answer == "y" or answer == "Y":
+    if answer in ('y', 'Y'):
         guessGame()
     else:
-        exit()
+        sys.exit()
+
 
 guessGame()
