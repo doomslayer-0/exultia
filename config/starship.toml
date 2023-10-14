@@ -3,6 +3,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+$custom\
+$sudo\
+${custom.arch}\
+$time\
 $username\
 $hostname\
 $localip\
@@ -14,6 +18,7 @@ $vcsh\
 $fossil_branch\
 ${custom.git_server}\
 $git_branch\
+$git_status\
 $git_commit\
 $git_state\
 $git_metrics\
@@ -21,6 +26,7 @@ $hg_branch\
 $pijul_channel\
 $docker_context\
 $package\
+$cmd_duration\
 $c\
 $cmake\
 $cobol\
@@ -74,10 +80,6 @@ $openstack\
 $azure\
 $env_var\
 $crystal\
-$custom\
-$sudo\
-$cmd_duration\
-$time\
 $battery\
 $line_break\
 $jobs\
@@ -93,8 +95,8 @@ $character\
 ################################################################################
 
 [character]
-success_symbol = '[└─>](bold blue) '
-error_symbol = '[✗ ->](bold red) '
+success_symbol = '[ λ](bold blue) '
+error_symbol = '[󰍴 λ](bold red) '
 
 [custom.git_server]
 #disabled = true
@@ -136,7 +138,7 @@ description = "Display last commit hash and message"
 command = "git show -s --format='%h \"%s\"'"
 when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
 style = "bright-yellow bold"
-format = "[$output]($style) "
+format = "[$output]($style)  "
 
 [custom.ssh_no_keys]
 disabled = true
@@ -172,8 +174,8 @@ style = "bold red"
 
 [cmd_duration]
 min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
-format = '\[[ $duration]($style)\] '
-style = 'yellow'
+format = '\[[ $duration]($style)\]'
+style = '#ff89b8'
 
 [memory_usage]
 format = '\[$symbol[${ram}( | ${swap})]($style)\]'
@@ -182,8 +184,8 @@ style = "bold dimmed white"
 disabled = false
 
 [time]
-style = "bright-purple"
-format = "  $time($style) "
+format = "[$time]($style) "
+style = "bright white"
 time_format = "%T"
 disabled = false
 
@@ -201,39 +203,40 @@ disabled = true
 
 [directory]
 truncation_length = 5
-style = "purple"
-format = "[$path]($style)[$lock_symbol]($lock_style) "
+style = "bold gray"
+format = '\[   [$path]($style) \]'
 
-[directory.substitutions]
-"Documents" = "󰈙"
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+[custom.arch]
+when = true
+command = 'echo ""'
+format = '[[ $output  ](bg:#1e1e2e fg:#3daee9)]($style)'
+style = "fg:#3daee9 bg:#1e1e2e"
+disabled = false
 
 ################################################################################
 ## GIT
 ################################################################################
 [git_branch]
 format = '\[[$symbol$branch]($style)\] '
-symbol = ' -> '
-style = "bold yellow"
+symbol = '  -> '
+style = "#cba6f7"
 
 [git_state]
 format = '\[[\($state( $progress_current of $progress_total)\)]($style)\]'
 
 [git_status]
-conflicted = "⚔️ "
-ahead = "💨${count} "
-behind = "🐢${count} "
-diverged = "🔱 💨${ahead_count} 🐢${behind_count} "
-untracked = "🛤️ ${count} "
-stashed = "📦 "
-modified = "📝${count} "
+conflicted = "󰞇 "
+ahead = " ${count} "
+behind = " ${count} "
+diverged = "󰺴   ${ahead_count} &  ${behind_count} "
+untracked = "󰩋 ${count} "
+stashed = "󱋡 "
+modified = " ${count} "
 staged = "🗃️ ${count} "
-renamed = "📛${count} "
-deleted = "🗑️ ${count} "
-style = "bright-white"
-format = '\[ $all_status$ahead_behind\]'
+renamed = "󰑕 ${count} "
+deleted = "󱂦 ${count} "
+format = '\[ : [$all_status$ahead_behind]($style)\]'
+style = "bold #94e2d5"
 
 [git_commit]
 commit_hash_length = 8
