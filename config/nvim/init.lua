@@ -14,8 +14,6 @@ local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   require("core.bootstrap").gen_chadrc_template()
   require("core.bootstrap").lazy(lazypath)
-  require("lazy").setup(
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 })
 end
 
 dofile(vim.g.base46_cache .. "defaults")
@@ -25,7 +23,7 @@ require "plugins"
 require("catppuccin").setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = { -- :h background
-        light = "mocha",
+        light = "latte",
         dark = "mocha",
     },
     transparent_background = false, -- disables setting the background color.
@@ -39,32 +37,34 @@ require("catppuccin").setup({
     no_italic = false, -- Force no italic
     no_bold = false, -- Force no bold
     no_underline = false, -- Force no underline
-    --styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-        -- comments = { "italic" }, -- Change the style of comments
-        -- conditionals = { "italic" },
-        -- loops = {},
-        -- functions = {},
-        -- keywords = {},
-        --strings = {},
-        --variables = {},
-        --numbers = {},
-        --booleans = {},
-        --properties = {},
-        --types = {},
-        --operators = {},
-    --},
-    --color_overrides = {},
-    --custom_highlights = {},
+    styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+        comments = { "italic" }, -- Change the style of comments
+        conditionals = { "italic" },
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
+    },
+    color_overrides = {},
+    custom_highlights = {},
     integrations = {
         cmp = true,
         gitsigns = true,
         nvimtree = true,
         treesitter = true,
         notify = false,
-        mini = false,
+        mini = {
+            enabled = true,
+            indentscope_color = "",
+        },
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
     },
 })
 
--- setup must be called before loading
 vim.cmd.colorscheme "catppuccin"
